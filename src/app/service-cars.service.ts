@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-
-
 import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
-
 import { CarUser } from './carUser';
 
 
@@ -54,6 +49,7 @@ export class ServiceCarsService {
 				});	
 	}
 /* debugging */
+
 
 
 	getUserCarsdata(){
@@ -105,7 +101,7 @@ export class ServiceCarsService {
 
 	createNewCarUser(car:CarUser){
    
-	let  carUserA = { ...car };
+	  let  carUserA = { ...car };
 
     let httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');   
         let options = {

@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 
-//import carsVars.ts;
 
 @Component({
   selector: 'app-cars-details-table',
@@ -20,61 +19,50 @@ import { Subscription } from 'rxjs';
 })
 export class CarsDetailsTableComponent implements OnInit {	
 
- 	// @ViewChild(TableModule) dt: TableModule;
-	  @ViewChild('dt',{static:true}) dt: TableModule;
+
+	 @ViewChild('dt',{static:true}) dt: TableModule;
 	 @ViewChild('carUserInputs',{static:false}) formValues; // Added this
 
-
-		    messages: any[] = [];
-	      subscription: Subscription;
-
-
+		   
   constructor(private _ServiceCarsService: ServiceCarsService, private router: Router) {
 
 		 this.subscription = this._ServiceCarsService.getMessage().subscribe(message => {
 					/*console.log(message);*/
 					this.showSuccessRemoved();
         });
+	 } /* end of constructor function */
 
-	} /* end of constructor function */
-
-		
-
-	  
-
+		messages: any[] = [];
+	  subscription: Subscription;
 		public cars: any = [];
 		public userInsert: any = [];
 		display: boolean =false;
 		cols: any[];
 		msgs: Message[] = [];
 		columns: any[];
-		totalRecords:string;
+		totalRecords:any;
 		SortEvent: any[];
-
+		
 
  	 ngOnInit() {
 
-		//this.totalRecords = 10;
-		
+		this.totalRecords = parseInt(localStorage.getItem("counter"));
 		this.cars = this._ServiceCarsService.getUserCarsdata();
-
 		this.populateTablePaginatorWithScore();
 
-		this.userInsert.avto = "volvo";
-	
-	this.columns =[
+	  this.columns = [
             { field: 'ime', header: 'Ime' },
             { field: 'avto', header: 'Avtomobil' },
-        ];
+     ];
 
+	 }/* end of ngOnInit */
 
-	}/* end of ngOnInit */
 
 
 	populateTablePaginatorWithScore(){
 			this._ServiceCarsService.numberOfUsers();
-		  this.totalRecords = localStorage.getItem("counter");
-	}/* end of ngOnInit */
+	    this.totalRecords = parseInt(localStorage.getItem("counter"));
+	}/* end of populateTablePaginatorWithScore */
 
 
 	newCarUser(){
@@ -100,8 +88,6 @@ export class CarsDetailsTableComponent implements OnInit {
 
 
 
-
-
 	showSuccessInserted() {
         this.msgs = [];
         this.msgs.push({severity:'success', summary:'car user successfully added'});	
@@ -112,7 +98,6 @@ export class CarsDetailsTableComponent implements OnInit {
 	showSomethingwentwrong() {
         this.msgs = [];
         this.msgs.push({severity:'success', summary:'Something went wrong'});	
-	
     }/* end of showSuccessInserted */
 
 
@@ -121,16 +106,12 @@ export class CarsDetailsTableComponent implements OnInit {
 	showSuccessRemoved() {
         this.msgs = [];
         this.msgs.push({severity:'info', summary:'car user successfully removed'});
-
     }/* end of showSuccessRemoved */
 
 	
 	showMessageClear() {
-	this.msgs = [];
-	 
+				this.msgs = [];
     }/* end of showSuccessRemoved */
-
-
 
 
 
@@ -140,31 +121,23 @@ export class CarsDetailsTableComponent implements OnInit {
 								this.showSuccessInserted();
 						} else {
 								this.showSomethingwentwrong();
-					}
+					  }
+				});
 
-	});
 				this.cars = this._ServiceCarsService.getUserCarsdata();
 			
 				this.formValues.resetForm();	
 					this.display = false;
-					this.userInsert.avto = "volvo";
-		
-			
-	
-setTimeout(function(){ 
-	var event = document.createEvent("HTMLEvents");
-	event.initEvent("click", true, true);
-	var button = document.querySelectorAll('#svasta')[0];
-	button.dispatchEvent(event);
- }, 500);
-
-
- //setTimeout(function(){ document.querySelectorAll("#svasta")[0].click(); }, 500);
+					//this.userInsert.avto = "volvo";
+				
+			 setTimeout(function(){ 
+					var event = document.createEvent("HTMLEvents");
+					event.initEvent("click", true, true);
+					var button = document.querySelectorAll('#svasta')[0];
+					button.dispatchEvent(event);
+			  	}, 500);
 
 	} /* end of a confirmNewCarUser */
-
-
-	
 
 
 
@@ -176,7 +149,7 @@ setTimeout(function(){
 
 
 		/* SortEvent --> any*/
- customSort(event: any) {
+  customSort(event: any) {
         event.data.sort((data1, data2) => {
             let value1 = data1[event.field];
             let value2 = data2[event.field];

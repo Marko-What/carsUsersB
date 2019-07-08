@@ -1,16 +1,13 @@
 <p-messages [(value)]="msgs" class="messageBox"></p-messages>
 
-
 <div class="p-grid">
 
     <div class="p-col-6 p-offset-3">
-		
-
+	
 
 <h3>Edit User Data</h3>
  <form #carEditInputs="ngForm" >
 <p-table [value]="cars"  editMode="row">
-
 
     <ng-template pTemplate="header">
         <tr>
@@ -91,7 +88,7 @@
 	
 
 
-           <td>
+            <td>
                 <p-cellEditor>
                     <ng-template pTemplate="input">
                         <input pInputText class="widthAdjs" type="text" [(ngModel)]="rowDataa.starost"  class="inputWidth" name ="starost" type="number" minlength="1" #starost="ngModel" required>
