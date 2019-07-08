@@ -50,6 +50,7 @@ input.widthAdjs {
 	min-width: 75px;
 }
 
+<<<<<<< HEAD
 
 
 .ui-dialog-titlebar {
@@ -70,3 +71,13 @@ input.widthAdjs {
 	height:0px!important;
 	border:0px!important;
 }
+=======
+.pi.pi-times {
+        display:none!important;
+}
+
+.ui-dialog-titlebar {
+        display:none!important;
+}
+
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d

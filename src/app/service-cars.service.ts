@@ -3,11 +3,14 @@ import { Observable, Subject } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+<<<<<<< HEAD
 
 
 import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
 
+=======
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 import { CarUser } from './carUser';
 
 
@@ -15,16 +18,25 @@ import { CarUser } from './carUser';
   providedIn: 'root'
 })
 export class ServiceCarsService {
+<<<<<<< HEAD
 	 baseurl: string = "http://localhost:3155/";
+=======
+	 baseurl: string = "http://localhost:3095/";
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 		//public dataA: any = [];
 		public cars:any = [];
 		public carsingle:any = [];
 		public currentCar:any = {};
+<<<<<<< HEAD
 	 	public counting:number;
+=======
+	 
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 /*http://localhost:4206/carstable*/
 
   constructor(private httpClient: HttpClient) {
 
+<<<<<<< HEAD
 		} /* end of constructor */
 
 
@@ -54,6 +66,11 @@ export class ServiceCarsService {
 				});	
 	}
 /* debugging */
+=======
+		
+	 } /* end of constructor */
+
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 
 
 	getUserCarsdata(){
@@ -65,11 +82,21 @@ export class ServiceCarsService {
 									this.cars.push(data[i]);
 				}
 				}, error => {
+<<<<<<< HEAD
 				  console.log("something went wrong");
 				});
 						 
 		return this.cars;
 		
+=======
+				  console.log("There was an error generating the proper GUID on the server", error);
+				});
+		
+		console.log(this.cars);
+		return this.cars;
+		
+
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 	 } /* end of getUserCarsdata */
 
 	
@@ -80,7 +107,11 @@ export class ServiceCarsService {
 		this.httpClient.get(this.baseurl + 'carusers/single?id='+id).subscribe((data:any) => {
 			this.carsingle = data;
     }, error => {
+<<<<<<< HEAD
    		console.log('something went wrong'+ error);
+=======
+    console.log("There was an error generating the proper GUID on the server", error);
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 		});
 		
 		return this.carsingle;
@@ -95,7 +126,16 @@ export class ServiceCarsService {
         let options = {
             headers: httpHeaders
         }; 
+<<<<<<< HEAD
 		return this.httpClient.put(this.baseurl + 'carusers/update', car, options);
+=======
+		 this.httpClient.post(this.baseurl + 'carusers/update', car, options).subscribe(data => {
+				console.log(data);
+		 },
+		 err => {
+				  console.log('Error: ' + err.error);
+			});
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 
 		}/* end of updateCars */
 		
@@ -110,9 +150,22 @@ export class ServiceCarsService {
     let httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');   
         let options = {
             headers: httpHeaders
+<<<<<<< HEAD
         }; 
 		    return this.httpClient.post(this.baseurl + 'carusers', carUserA, options);
 	
+=======
+        };
+
+		
+		   this.httpClient.post(this.baseurl + 'carusers', carUserA, options).subscribe(data => {
+				  console.log(data);	
+		   },
+		   err => {
+				    //console.log('Error: ' + err.error);
+			  });
+				
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 	}/* end of createCar */
 
 
@@ -120,6 +173,7 @@ export class ServiceCarsService {
 
 
 	deleteCars(carU:CarUser){
+<<<<<<< HEAD
 
 		const httpOptions = {
 				headers: new HttpHeaders({ 'Content-Type': 'application/json' }), body: carU
@@ -127,6 +181,21 @@ export class ServiceCarsService {
 	
    return this.httpClient.delete(this.baseurl + 'carusers/delete', httpOptions);       
             
+=======
+        let httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');   
+        let options = {
+            headers: httpHeaders
+        };
+
+		
+		 this.httpClient.post(this.baseurl + 'carusers/delete', carU, options).subscribe(data => {
+				console.log(data);
+		 },
+		 err => {
+				  console.log('Error: ' + err.error);
+			});
+
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 	}/* end of deleteCars */
 
 

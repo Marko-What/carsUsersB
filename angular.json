@@ -29,10 +29,14 @@
                "node_modules/primeng/resources/primeng.min.css",
                "node_modules/primeicons/primeicons.css", 
             ],
+<<<<<<< HEAD
             "scripts": [
 		"node_modules/chart.js/dist/Chart.js",
 		"node_modules/quill/dist/quill.js"
 	    ],
+=======
+            "scripts": [],
+>>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
             "es5BrowserSupport": true
           },
           "configurations": {
