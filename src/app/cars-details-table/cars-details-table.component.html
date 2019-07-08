@@ -1,18 +1,11 @@
 
-<<<<<<< HEAD
 <p-messages [(value)]="msgs" class="messageBox" ></p-messages>
-=======
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 
 <div class="ui-rtl" dir="rtl">
     <p-dialog [(visible)]="display">
    
        <h5> Insert new Car User</h5>
-<<<<<<< HEAD
 <form #carUserInputs="ngForm"  > 
-=======
-<form #carUserInputs="ngForm" > 
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 
 
 
@@ -81,11 +74,6 @@
 
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 <span class="ui-float-label">
     <input id="float-input" type="text" size="30" minlength="1" pInputText [(ngModel)]="userInsert.starost" class="inputWidth" name ="starost" type="number" #starost="ngModel" required> 
     <label for="float-input">Starost</label>
@@ -111,11 +99,7 @@
 
 <span class="ui-float-label">
 <label for="float-input">Avto</label>
-<<<<<<< HEAD
  <select [(ngModel)]="userInsert.avto" name="avto">
-=======
- <select [(ngModel)]="userInsert.avto">
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 <option value="volvo" (click)="selectCar('volvo')" [selected]="true">Volvo</option>
 				<option value="bmw" (click)="selectCar('bmw')">bmw</option>
 				<option value="saab" (click)="selectCar('saab')">Saab</option>
@@ -149,10 +133,7 @@
 
 <div class="p-col-6 p-offset-3">
 <button pButton type="button" (click)="newCarUser()" class="ui-button-info" label="Add new Car User" ></button>
-<<<<<<< HEAD
 	  
-=======
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 </div>
 
 <div class="p-grid">
@@ -161,7 +142,6 @@
 
     <div class="p-col-6 p-offset-3">
 			
-<<<<<<< HEAD
 	<p-table id="carTable" [value]="cars"  [paginator]="true" [rows]="5" [totalRecords]="totalRecords" [columns]="cols" #dt >
 	    <ng-template pTemplate="header">
 		<tr>
@@ -174,14 +154,6 @@
                 <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
       </th>
     <th></th>
-=======
-	<p-table [value]="cars">
-	    <ng-template pTemplate="header">
-		<tr>
-		    <th>ime</th>
-		    <th>avtomobil</th>
-				<th></th>
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 		</tr>
 	    </ng-template>
 
@@ -198,14 +170,8 @@
 				
 		</tr>
 	    </ng-template>
-<<<<<<< HEAD
 
 	</p-table>
  <button id="svasta" (click)="dt.reset()" ></button>
-=======
-	   
-	</p-table>
-    
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
       </div><!-- end of p-col-6 p-offset-3 -->
 </div><!-- end of p-grid -->

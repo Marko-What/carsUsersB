@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ServiceCarsService } from './../service-cars.service';
 import {NgForm} from '@angular/forms';
@@ -10,24 +9,6 @@ import {MessageService} from 'primeng/components/common/messageservice';
 import {TableModule} from 'primeng/table';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-=======
-import { Component, OnInit, ViewChild } from '@angular/core';
-
-import { ServiceCarsService } from './../service-cars.service';
-
-import {NgForm} from '@angular/forms';
-
-
-
-import {ButtonModule} from 'primeng/button';
-import {DialogModule} from 'primeng/dialog';
-
-
-import {TableModule} from 'primeng/table';
-import { Router } from '@angular/router';
-
-
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 
 
 //import carsVars.ts;
@@ -39,7 +20,6 @@ import { Router } from '@angular/router';
 })
 export class CarsDetailsTableComponent implements OnInit {	
 
-<<<<<<< HEAD
  	// @ViewChild(TableModule) dt: TableModule;
 	  @ViewChild('dt',{static:true}) dt: TableModule;
 	 @ViewChild('carUserInputs',{static:false}) formValues; // Added this
@@ -94,29 +74,6 @@ export class CarsDetailsTableComponent implements OnInit {
 	populateTablePaginatorWithScore(){
 			this._ServiceCarsService.numberOfUsers();
 		  this.totalRecords = localStorage.getItem("counter");
-=======
-
-
-
-  constructor(private _ServiceCarsService: ServiceCarsService, private router: Router) {
-	}
-
-
-	 @ViewChild('carUserInputs',{static:false}) formValues; // Added this
-		
-		public cars: any = [];
-		public userInsert: any = [];
-		display: boolean =false;
-
-
-
-
- 	 ngOnInit() {
-		this.cars = this._ServiceCarsService.getUserCarsdata();
-		
-		this.userInsert.avto = "volvo";
-	
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 	}/* end of ngOnInit */
 
 
@@ -132,24 +89,17 @@ export class CarsDetailsTableComponent implements OnInit {
 
 
 	singleCarDetails(car){
-<<<<<<< HEAD
 	
 		this._ServiceCarsService.currentCar = car;
 			let cc =JSON.stringify(car);
 			localStorage.setItem("currnetCar", cc);
 		
 		this.router.navigate(['/cardetail']);	 	
-=======
-		this._ServiceCarsService.currentCar = car;
-			//$window.location.href = '/cardetail';
-			this.router.navigate(['/cardetail', { car: car}]);	 	
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 	} /* end of singleCarDetails */
 
 
 
 
-<<<<<<< HEAD
 
 
 	showSuccessInserted() {
@@ -215,17 +165,6 @@ setTimeout(function(){
 
 
 	
-=======
-	confirmNewCarUser(){
-			this._ServiceCarsService.createNewCarUser(this.userInsert);
-				this.cars = this._ServiceCarsService.getUserCarsdata();	
-				this.formValues.resetForm();	
-					this.display = false;
-	} /* end of a confirmNewCarUser */
-
-
-
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 
 
 
@@ -236,7 +175,6 @@ setTimeout(function(){
 
 
 
-<<<<<<< HEAD
 		/* SortEvent --> any*/
  customSort(event: any) {
         event.data.sort((data1, data2) => {
@@ -258,10 +196,6 @@ setTimeout(function(){
             return (event.order * result);
         });
     }
-=======
-
-
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 	
 
 	

@@ -4,12 +4,9 @@ import { ActivatedRoute, Params } from "@angular/router";
 
 import {NgForm} from '@angular/forms';
 import { ServiceCarsService } from './../service-cars.service';
-<<<<<<< HEAD
 import {MessageService} from 'primeng/components/common/messageservice';
 import {Message} from 'primeng/components/common/api';
 
-=======
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 
 
 import { CarUser } from './../carUser';
@@ -32,20 +29,19 @@ export class SingleCarDetailsComponentComponent implements OnInit {
 		public clonedCars:CarRow = [];*/
 		public rowDataa:any = [];
 		public clonedCars:any = [];
-<<<<<<< HEAD
 		msgs: Message[] = [];
 
 
-	ngOnInit() {
-			this.cars[0] = this._ServiceCarsService.currentCar;	
-			
-				this.rowDataa = { ...this.cars[0] };	
+  ngOnInit() {
+		this.cars[0] = this._ServiceCarsService.currentCar;	
+		
+			this.rowDataa = { ...this.cars[0] };	
 
-				/*	refresh car detail page */
-					let curr = JSON.parse(localStorage.getItem("currnetCar"));
-					this.rowDataa = curr;
-				
-		} /* end of ngOnInit */
+			/*	refresh car detail page */
+				let curr = JSON.parse(localStorage.getItem("currnetCar"));
+				this.rowDataa = curr;
+			
+	  } /* end of ngOnInit */
 
 
 
@@ -56,15 +52,6 @@ export class SingleCarDetailsComponentComponent implements OnInit {
 
     }/* end of showSuccessRemoved */
 
-=======
-		
-
-
-  ngOnInit() {
-		this.cars[0] = this._ServiceCarsService.currentCar;
-			this.rowDataa = { ...this.cars[0] };	
-	  }
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
 
 
 	 onRowEditInit() {
@@ -75,7 +62,6 @@ export class SingleCarDetailsComponentComponent implements OnInit {
 
 
     onRowEditSave() {
-<<<<<<< HEAD
 			let carUser: CarUser = {...this.rowDataa };
 				this._ServiceCarsService.updateCars(carUser).subscribe(data => { 
 						if(data['data'] == 'user was updated') {
@@ -90,34 +76,20 @@ export class SingleCarDetailsComponentComponent implements OnInit {
 
 			
 
-	onRowdelete() {
-		let carUser: CarUser = { ...this.rowDataa }
-			this._ServiceCarsService.deleteCars(carUser).subscribe(data => { 
-					if(data['data'] == 'user was successfully deleted') {
-						this._ServiceCarsService.userDeleted();
-					} else {
-						
-					}
-			});
-
-						this.router.navigate(['/carstable']);	
-		}
-
-
-=======
-			let carUser: CarUser = {...this.rowDataa }
-				this._ServiceCarsService.updateCars(carUser);			
-    }
-
-
-
-
  onRowdelete() {
 	let carUser: CarUser = { ...this.rowDataa }
-        this._ServiceCarsService.deleteCars(carUser);		
+        this._ServiceCarsService.deleteCars(carUser).subscribe(data => { 
+				if(data['data'] == 'user was successfully deleted') {
+					this._ServiceCarsService.userDeleted();
+				} else {
+					
+				}
+		});
+
 					this.router.navigate(['/carstable']);	
 	   }
->>>>>>> a5cd1b71702d0c7779b822596692d310d941e61d
+
+
 
 
     onRowEditCancel() {
